@@ -6,16 +6,18 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
- function fibonacci(n){
-   let rval = [0,1];
+function fibonacci(n) {
+  let rval = [0, 1];
 
-   for (let i = 0; i <= n; i++){
-     let r1 = rval[i]
-     let r2 = rval[i+1]
-     rval.push(r1+r2)
-   }
-   return rval;
- }
+  if (n > 2) {
+    for (let i = 0; i <= n; i++) {
+      let r1 = rval[i]
+      let r2 = rval[i + 1]
+      rval.push(r1 + r2)
+    }
+  }
+  return rval.splice(0, n);
+}
 
 
 rl.question('Enter n value: ', (n) => {
